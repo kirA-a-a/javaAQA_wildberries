@@ -15,7 +15,7 @@ public class BasePage {
     private By inputeAddresses = By.xpath("//*[@id=\"basketContent\"]/div[1]/a");
     private By inputeBasket = By.xpath("//*[@id=\"basketContent\"]/div[3]/a");
 
-    public RegistrationPage clickSignIn(long number) {
+    public RegistrationPage clickSignIn() {
         driver.findElement(inputeSignIn).click();
         return new RegistrationPage(driver);
     }
@@ -30,8 +30,8 @@ public class BasePage {
         return new BasketPage(driver);
     }
 
-    public RegistrationPage register(long number) {
-        this.clickSignIn(number);
+    public RegistrationPage register() {
+        this.clickSignIn();
         return new RegistrationPage(driver);
     }
 
