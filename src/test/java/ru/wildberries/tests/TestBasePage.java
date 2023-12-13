@@ -11,15 +11,15 @@ public class TestBasePage {
     public ChromeDriver driver;
 
     @Test
-    public void buyItems() {
+    public void buyItems() throws InterruptedException {
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         driver.get("https://www.wildberries.ru");
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         BasePage basePage = new BasePage(driver);
 
-        basePage.search("123");
-
+        TimeUnit.SECONDS.sleep(1);
+        basePage.search("Дело Деда Упоры для отжиманий деревянные 32см");
     }
 
 }
