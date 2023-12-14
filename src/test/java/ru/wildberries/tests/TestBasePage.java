@@ -19,7 +19,9 @@ public class TestBasePage {
         BasePage basePage = new BasePage(driver);
 
         TimeUnit.SECONDS.sleep(1);
-        basePage.search("Дело Деда Упоры для отжиманий деревянные 32см");
+        basePage.search("Упоры для отжиманий деревянные 32см");
+        basePage.clickProductCard();
+        basePage.clickAddBasket();
     }
 
 }

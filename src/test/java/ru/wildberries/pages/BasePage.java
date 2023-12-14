@@ -20,6 +20,8 @@ public class BasePage {
     private By inputeBasket = By.xpath("//*[@id=\"basketContent\"]/div[3]/a");
     private By searchInput = By.xpath("//input[@id='searchInput']");
     private By applySearchBtn = By.xpath("//button[@id='applySearchBtn']");
+    private By productCard = By.xpath("//article[@id='c79442510']//a");
+    private By addProductInBasket = By.xpath("//div[@class='order']//button[@class='btn-main']");
 
     public RegistrationPage clickSignIn() {
         driver.findElement(inputeSignIn).click();
@@ -44,6 +46,15 @@ public class BasePage {
     public BasePage search(String searchItems) {
         driver.findElement(searchInput).click();
         driver.findElement(searchInput).sendKeys(searchItems, Keys.ENTER);
+        return new BasePage(driver);
+    }
+
+    public BasePage clickProductCard() {
+        driver.findElement(productCard).click();
+        return new BasePage(driver);
+    }
+    public BasePage clickAddBasket() {
+        driver.findElement(addProductInBasket).click();
         return new BasePage(driver);
     }
 
