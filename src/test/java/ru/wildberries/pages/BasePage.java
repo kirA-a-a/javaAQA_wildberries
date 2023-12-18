@@ -22,6 +22,10 @@ public class BasePage {
     private By applySearchBtn = By.xpath("//button[@id='applySearchBtn']");
     private By productCard = By.xpath("//article[@id='c79442510']//a");
     private By addProductInBasket = By.xpath("//div[@class='order']//button[@class='btn-main']");
+    private By actionNotificationText = By.xpath("//*[contains(text(),'Товар добавлен в корзину')]");
+    private By buttonGoToTheBasket = By.xpath("//div[@class='order']//a");
+    private By nameItemInBasket = By.xpath("//span[@class='good-info__good-name']");
+    private By buttonBuy = By.xpath("//div//button[@type='button' and contains(text(), 'Заказать')]");
 
     public RegistrationPage clickSignIn() {
         driver.findElement(inputeSignIn).click();
@@ -60,6 +64,25 @@ public class BasePage {
 
     public BasePage clickSearch() {
         driver.findElement(applySearchBtn).click();
+        return new BasePage(driver);
+    }
+
+    public BasePage getTextInModuleWindow() {
+        driver.findElement(actionNotificationText);
+        return new BasePage(driver);
+    }
+
+    public BasePage goToTheBasket() {
+        driver.findElement(buttonGoToTheBasket).click();
+        return new BasePage(driver);
+    }
+
+    public BasePage itemInBasket() {
+        driver.findElement(nameItemInBasket).getText();
+        return new BasePage(driver);
+    }
+    public BasePage buyItems() {
+        driver.findElement(buttonBuy).click();
         return new BasePage(driver);
     }
 

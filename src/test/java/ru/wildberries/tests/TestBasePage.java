@@ -1,5 +1,6 @@
 package ru.wildberries.tests;
 
+import jdk.jfr.Description;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.wildberries.pages.BasePage;
@@ -11,6 +12,7 @@ public class TestBasePage {
     public ChromeDriver driver;
 
     @Test
+    @Description("Добавление товара в корзину")
     public void buyItems() throws InterruptedException {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
@@ -22,6 +24,10 @@ public class TestBasePage {
         basePage.search("Упоры для отжиманий деревянные 32см");
         basePage.clickProductCard();
         basePage.clickAddBasket();
+        basePage.getTextInModuleWindow();
+        basePage.goToTheBasket();
+        basePage.itemInBasket();
+        basePage.buyItems();
     }
 
 }
