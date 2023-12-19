@@ -20,12 +20,6 @@ public class BasePage {
     private By productCard = By.xpath("//article[@id='c79442510']//a");
     private By addProductInBasket = By.xpath("//div[@class='order']//button[@class='btn-main']");
     private By actionNotificationText = By.xpath("//*[contains(text(),'Товар добавлен в корзину')]");
-    private By buttonGoToTheBasket = By.xpath("//div[@class='order']//a");
-    private By nameItemInBasket = By.xpath("//span[@class='good-info__good-name']");
-    private By buttonBuy = By.xpath("//div//button[@type='button' and contains(text(), 'Заказать')]");
-    private By buttonDeleteInBasket = By.xpath("//div[@class='list-item__btn btn']//button[2]");
-    private By textClearBasket = By.xpath("//div[@class='basket-empty__wrap']/h1[contains(text(), 'В корзине пока пусто')]");
-    private By buttonAddFavorite = By.xpath("//div[@class='list-item__btn btn']//button[1]");
 
     public RegistrationPage clickSignIn() {
         driver.findElement(inputeSignIn).click();
@@ -69,35 +63,6 @@ public class BasePage {
 
     public BasePage getTextInModuleWindow() {
         driver.findElement(actionNotificationText);
-        return new BasePage(driver);
-    }
-
-    public BasePage goToTheBasket() {
-        driver.findElement(buttonGoToTheBasket).click();
-        return new BasePage(driver);
-    }
-
-    public BasePage itemInBasket() {
-        driver.findElement(nameItemInBasket).getText();
-        return new BasePage(driver);
-    }
-    public BasePage buyItems() {
-        driver.findElement(buttonBuy).click();
-        return new BasePage(driver);
-    }
-
-    public BasePage deleteItemInBasket() {
-        driver.findElement(buttonDeleteInBasket).click();
-        return new BasePage(driver);
-    }
-
-    public BasePage getTextClearBasket() {
-        driver.findElement(textClearBasket);
-        return new BasePage(driver);
-    }
-
-    public BasePage addFavorite() {
-        driver.findElement(buttonAddFavorite).click();
         return new BasePage(driver);
     }
 

@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.wildberries.pages.BasePage;
+import ru.wildberries.pages.BasketPage;
 import ru.wildberries.pages.RegistrationPage;
 
 import java.util.concurrent.TimeUnit;
@@ -21,15 +22,16 @@ public class TestBasePage {
         driver.get("https://www.wildberries.ru");
 
         BasePage basePage = new BasePage(driver);
+        BasketPage basketPage = new BasketPage(driver);
 
         TimeUnit.SECONDS.sleep(1);
         basePage.search("Упоры для отжиманий деревянные 32см");
         basePage.clickProductCard();
         basePage.clickAddBasket();
         basePage.getTextInModuleWindow();
-        basePage.goToTheBasket();
-        basePage.itemInBasket();
-        basePage.buyItems();
+        basketPage.goToTheBasket();
+        basketPage.itemInBasket();
+        basketPage.buyItems();
     }
 
     @Test
@@ -41,16 +43,17 @@ public class TestBasePage {
 
 
         BasePage basePage = new BasePage(driver);
+        BasketPage basketPage = new BasketPage(driver);
 
         TimeUnit.SECONDS.sleep(1);
         basePage.search("Упоры для отжиманий деревянные 32см");
         basePage.clickProductCard();
         basePage.clickAddBasket();
         basePage.getTextInModuleWindow();
-        basePage.goToTheBasket();
-        basePage.itemInBasket();
-        basePage.deleteItemInBasket();
-        basePage.getTextClearBasket();
+        basketPage.goToTheBasket();
+        basketPage.itemInBasket();
+        basketPage.deleteItemInBasket();
+        basketPage.getTextClearBasket();
     }
 
     @Test
@@ -62,6 +65,7 @@ public class TestBasePage {
 
 
         BasePage basePage = new BasePage(driver);
+        BasketPage basketPage = new BasketPage(driver);
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
         TimeUnit.SECONDS.sleep(1);
@@ -69,9 +73,9 @@ public class TestBasePage {
         basePage.clickProductCard();
         basePage.clickAddBasket();
         basePage.getTextInModuleWindow();
-        basePage.goToTheBasket();
-        basePage.itemInBasket();
-        basePage.addFavorite();
+        basketPage.goToTheBasket();
+        basketPage.itemInBasket();
+        basketPage.addFavorite();
         registrationPage.enterNumberPhone("9999999999");
         registrationPage.clickInputSendKey();
         Assert.assertEquals(registrationPage.successfulRegistration(), "Введите код с картинки");
