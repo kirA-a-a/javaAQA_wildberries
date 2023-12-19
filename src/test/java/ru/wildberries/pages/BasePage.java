@@ -25,6 +25,7 @@ public class BasePage {
     private By buttonBuy = By.xpath("//div//button[@type='button' and contains(text(), 'Заказать')]");
     private By buttonDeleteInBasket = By.xpath("//div[@class='list-item__btn btn']//button[2]");
     private By textClearBasket = By.xpath("//div[@class='basket-empty__wrap']/h1[contains(text(), 'В корзине пока пусто')]");
+    private By buttonAddFavorite = By.xpath("//div[@class='list-item__btn btn']//button[1]");
 
     public RegistrationPage clickSignIn() {
         driver.findElement(inputeSignIn).click();
@@ -92,6 +93,11 @@ public class BasePage {
 
     public BasePage getTextClearBasket() {
         driver.findElement(textClearBasket);
+        return new BasePage(driver);
+    }
+
+    public BasePage addFavorite() {
+        driver.findElement(buttonAddFavorite).click();
         return new BasePage(driver);
     }
 
