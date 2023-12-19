@@ -23,6 +23,8 @@ public class BasePage {
     private By buttonGoToTheBasket = By.xpath("//div[@class='order']//a");
     private By nameItemInBasket = By.xpath("//span[@class='good-info__good-name']");
     private By buttonBuy = By.xpath("//div//button[@type='button' and contains(text(), 'Заказать')]");
+    private By buttonDeleteInBasket = By.xpath("//div[@class='list-item__btn btn']//button[2]");
+    private By textClearBasket = By.xpath("//div[@class='basket-empty__wrap']/h1[contains(text(), 'В корзине пока пусто')]");
 
     public RegistrationPage clickSignIn() {
         driver.findElement(inputeSignIn).click();
@@ -80,6 +82,16 @@ public class BasePage {
     }
     public BasePage buyItems() {
         driver.findElement(buttonBuy).click();
+        return new BasePage(driver);
+    }
+
+    public BasePage deleteItemInBasket() {
+        driver.findElement(buttonDeleteInBasket).click();
+        return new BasePage(driver);
+    }
+
+    public BasePage getTextClearBasket() {
+        driver.findElement(textClearBasket);
         return new BasePage(driver);
     }
 

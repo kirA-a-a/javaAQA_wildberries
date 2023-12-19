@@ -12,7 +12,7 @@ public class TestBasePage {
     public ChromeDriver driver;
 
     @Test
-    @Description("Добавление товара в корзину")
+    @Description("Покупка товара")
     public void buyItems() throws InterruptedException {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
@@ -28,6 +28,27 @@ public class TestBasePage {
         basePage.goToTheBasket();
         basePage.itemInBasket();
         basePage.buyItems();
+    }
+
+    @Test
+    @Description("Добавление товара в корзину с последующием удалением этого товара из корзины")
+    public void buyItemsAndDeleteInBasket() throws InterruptedException {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.get("https://www.wildberries.ru");
+
+
+        BasePage basePage = new BasePage(driver);
+
+        TimeUnit.SECONDS.sleep(1);
+        basePage.search("Упоры для отжиманий деревянные 32см");
+        basePage.clickProductCard();
+        basePage.clickAddBasket();
+        basePage.getTextInModuleWindow();
+        basePage.goToTheBasket();
+        basePage.itemInBasket();
+        basePage.deleteItemInBasket();
+        basePage.getTextClearBasket();
     }
 
 }
