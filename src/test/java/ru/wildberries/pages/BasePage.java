@@ -18,7 +18,7 @@ public class BasePage {
     private By searchInput = By.xpath("//input[@id='searchInput']");
     private By applySearchBtn = By.xpath("//button[@id='applySearchBtn']");
     private By productCard = By.xpath("//article[@id='c79442510']//a");
-    private By addProductInBasket = By.xpath("//div[@class='order']//button[@class='btn-main']");
+    private By addProductInBasket = By.xpath("//button[@aria-label='Добавить в корзину']");
     private By actionNotificationText = By.xpath("//*[contains(text(),'Товар добавлен в корзину')]");
 
     public RegistrationPage clickSignIn() {

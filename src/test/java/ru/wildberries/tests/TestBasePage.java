@@ -62,6 +62,7 @@ public class TestBasePage {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         driver.get("https://www.wildberries.ru");
+        driver.manage().window().maximize();
 
 
         BasePage basePage = new BasePage(driver);
