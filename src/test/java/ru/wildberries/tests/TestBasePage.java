@@ -82,4 +82,30 @@ public class TestBasePage {
         Assert.assertEquals(registrationPage.successfulRegistration(), "Введите код с картинки");
     }
 
+    @Test
+    @Description("Добавление товара в корзину с последующием добавлением его в избранное")
+    public void addSeveralItemsInBasket() throws InterruptedException {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.get("https://www.wildberries.ru");
+        driver.manage().window().maximize();
+
+
+        BasePage basePage = new BasePage(driver);
+        BasketPage basketPage = new BasketPage(driver);
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        TimeUnit.SECONDS.sleep(1);
+        basePage.search("Упоры для отжиманий деревянные 32см");
+        basePage.clickProductCard();
+        basePage.clickAddBasket();
+        basePage.getTextInModuleWindow();
+        basketPage.goToTheBasket();
+        basketPage.itemInBasket();
+        basketPage.plusCountItem();
+//        registrationPage.enterNumberPhone("9999999999");
+//        registrationPage.clickInputSendKey();
+//        Assert.assertEquals(registrationPage.successfulRegistration(), "Введите код с картинки");
+    }
+
 }

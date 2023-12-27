@@ -11,6 +11,7 @@ public class BasketPage {
     private By buttonDeleteInBasket = By.xpath("//div[@class='list-item__btn btn']//button[2]");
     private By textClearBasket = By.xpath("//div[@class='basket-empty__wrap']/h1[contains(text(), 'В корзине пока пусто')]");
     private By buttonAddFavorite = By.xpath("//div[@class='list-item__btn btn']//button[1]");
+    private By buttonCountPlus = By.xpath("//button[@aria-label='Увеличить количество']");
 
     private WebDriver driver;
 
@@ -45,6 +46,10 @@ public class BasketPage {
 
     public BasketPage addFavorite() {
         driver.findElement(buttonAddFavorite).click();
+        return new BasketPage(driver);
+    }
+    public BasketPage plusCountItem() {
+        driver.findElement(buttonCountPlus).click();
         return new BasketPage(driver);
     }
 }
