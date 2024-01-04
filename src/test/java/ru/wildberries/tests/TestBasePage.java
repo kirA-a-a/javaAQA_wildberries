@@ -103,7 +103,7 @@ public class TestBasePage {
         basketPage.goToTheBasket();
         basketPage.itemInBasket();
         basketPage.plusCountItem();
-//        registrationPage.enterNumberPhone("9999999999");
+        registrationPage.enterNumberPhone("9999999999");
 //        registrationPage.clickInputSendKey();
 //        Assert.assertEquals(registrationPage.successfulRegistration(), "Введите код с картинки");
     }
