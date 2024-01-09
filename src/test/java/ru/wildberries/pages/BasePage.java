@@ -3,6 +3,7 @@ package ru.wildberries.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class BasePage {
 
@@ -18,7 +19,8 @@ public class BasePage {
     private By searchInput = By.xpath("//input[@id='searchInput']");
     private By applySearchBtn = By.xpath("//button[@id='applySearchBtn']");
     private By productCard = By.xpath("//article[@id='c79442510']//a");
-    private By addProductInBasket = By.xpath("//button[@aria-label='Добавить в корзину']");
+//    private By addProductInBasket = By.xpath("//button[@aria-label='Добавить в корзину']");
+    private By addProductInBasket = By.xpath("//button[@class='btn-main']");
     private By actionNotificationText = By.xpath("//*[contains(text(),'Товар добавлен в корзину')]");
 
     public RegistrationPage clickSignIn() {

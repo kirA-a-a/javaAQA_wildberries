@@ -108,4 +108,21 @@ public class TestBasePage {
         Assert.assertEquals(registrationPage.successfulRegistration(), "Введите код с картинки");
     }
 
+    @Test
+    @Description("Увеличение количество товара добавленного в корзину")
+    public void plusCountItemsInBasket() throws InterruptedException{
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.get("https://www.wildberries.ru");
+        driver.manage().window().maximize();
+
+        BasePage basePage = new BasePage(driver);
+        BasketPage basketPage = new BasketPage(driver);
+
+        TimeUnit.SECONDS.sleep(1);
+        basePage.search("Упоры для отжиманий деревянные 32см");
+        basePage.clickProductCard();
+        basePage.clickAddBasket();
+    }
+
 }
